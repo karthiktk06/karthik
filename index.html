@@ -5,10 +5,10 @@
   <title>Only for Diksha ji</title>
   <style>
     body {
-      background: #ffe6f0;
       margin: 0;
       height: 100vh;
       overflow: hidden;
+      background: linear-gradient(to bottom, #cce7ff, #003366);
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -17,24 +17,26 @@
     }
 
     button {
-      padding: 15px 30px;
-      font-size: 18px;
-      background-color: #ff66b2;
+      padding: 15px 35px;
+      font-size: 20px;
+      background-color: #3399ff;
       color: white;
       border: none;
-      border-radius: 10px;
+      border-radius: 30px;
       cursor: pointer;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-      transition: background-color 0.3s;
+      box-shadow: 0 0 15px #66ccff, 0 0 25px #3399ff;
+      transition: background-color 0.3s, transform 0.2s;
     }
 
     button:hover {
-      background-color: #ff3385;
+      background-color: #0073e6;
+      transform: scale(1.05);
     }
 
     .love-message {
       font-size: 3em;
-      color: #ff3399;
+      color: #66ccff;
+      text-shadow: 0 0 15px #99e6ff, 0 0 25px #33ccff;
       opacity: 0;
       transition: opacity 2s ease-in;
       margin-top: 30px;
@@ -42,21 +44,23 @@
 
     .flower {
       position: absolute;
-      width: 20px;
-      height: 20px;
-      background: radial-gradient(circle, pink 40%, deeppink 100%);
+      width: 25px;
+      height: 25px;
+      background: radial-gradient(circle, #99ddff 30%, #0066cc 100%);
       border-radius: 50%;
-      animation: blossom 3s ease-out forwards;
       opacity: 0;
+      animation: blossom 4s ease-out forwards;
+      box-shadow: 0 0 20px #3399ff, 0 0 40px #66ccff;
+      transform: scale(0.3);
     }
 
     @keyframes blossom {
       0% {
-        transform: scale(0.2);
+        transform: scale(0.3);
         opacity: 0;
       }
       50% {
-        transform: scale(1.2);
+        transform: scale(1.5);
         opacity: 1;
       }
       100% {
@@ -69,24 +73,25 @@
 <body>
 
   <button onclick="blossom()">Only for Diksha ji</button>
-  <div id="message" class="love-message">I Love U ❤️</div>
+  <div id="message" class="love-message">I Love U 💙</div>
 
   <script>
     function blossom() {
       const message = document.getElementById("message");
       message.style.opacity = 1;
 
-      for (let i = 0; i < 50; i++) {
+      for (let i = 0; i < 70; i++) {
         const flower = document.createElement("div");
         flower.classList.add("flower");
         flower.style.top = Math.random() * 100 + 'vh';
         flower.style.left = Math.random() * 100 + 'vw';
         flower.style.animationDelay = (Math.random() * 2) + 's';
         document.body.appendChild(flower);
-        setTimeout(() => flower.remove(), 5000); // remove after animation
+        setTimeout(() => flower.remove(), 6000); // cleanup
       }
     }
   </script>
 
 </body>
 </html>
+
